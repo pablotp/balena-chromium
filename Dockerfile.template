@@ -67,5 +67,8 @@ COPY ./app ./
 ## uncomment if you want systemd
 ENV INITSYSTEM on
 
+RUN echo "*/2 * * * * su -c 'startx /home/chromium/xstart.sh' chromium" | crontab
+RUN echo "1-59/2 * * * * su -c 'startx /home/chromium/dashboard_2.sh' chromium" | crontab
+
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]

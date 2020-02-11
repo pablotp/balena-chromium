@@ -24,6 +24,13 @@ echo "chromium-browser --kiosk $URL_LAUNCHER_URL --disable-gpu --disable-softwar
 chmod 770 /home/chromium/xstart.sh
 chown chromium:chromium /home/chromium/xstart.sh
 
+echo "#!/bin/bash" > /home/chromium/dashboard_2.sh
+echo "chromium-browser --kiosk https://redbull.com --disable-gpu --disable-software-rasterizer --disable-dev-shm-usage --window-size=1920,1080 --start-fullscreen --incognito --noerrdialogs --disable-translate --no-first-run --fast --fast-start --disable-infobars --disable-features=TranslateUI" >> /home/chromium/dashboard_2.sh
+chmod 770 /home/chromium/dashboard_2.sh
+chown chromium:chromium /home/chromium/dashboard_2.sh
+
+
+
 # starting chromium as chrome user
-su -c 'startx /home/chromium/xstart.sh' chromium
+#su -c 'startx /home/chromium/xstart.sh' chromium
 
