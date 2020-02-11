@@ -68,7 +68,7 @@ COPY ./app ./
 ENV INITSYSTEM on
 
 RUN echo "0,6,12,18,24,30,36,42,48,54 * * * * su -c 'startx /home/chromium/dashboard_a.sh' chromium" | crontab
-RUN echo "3,9,15,21,27,33,39,45,51,57 * * * * su -c 'startx /home/chromium/dashboard_b.sh' chromium" >> crontab
+crontab -l | { cat; echo "3,9,15,21,27,33,39,45,51,57 * * * * su -c 'startx /home/chromium/dashboard_b.sh' chromium"; } | crontab -
 
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]
